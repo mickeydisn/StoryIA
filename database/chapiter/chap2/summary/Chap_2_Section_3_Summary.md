@@ -1,0 +1,30 @@
+# Section 3 : Tissage Orbital (2040)
+
+Le silence n’existe pas au Vatican Orbital. C’est un mensonge de terrien. Ici, à quatre cent mille kilomètres de toute certitude, le silence est un bourdonnement basse fréquence, une vibration de ruche métallique qui s’écoule dans les os à travers les semelles magnétiques. Yuri « Pauk » Volkov dort en « crochet », les jambes repliées contre une poutre de nanotubes, suspendu dans le vide de la Section 3 du Tore. Il n’y a ni haut ni bas, seulement l’inertie et l’odeur. Une odeur de vieux métal froid, d’ozone résiduel et de sueur séchée qui stagne dans l’air recyclé. Yuri ouvre un œil, le gauche, celui qui ne pleure plus en apesanteur. Il ajuste sa visière. À travers le blindage transparent, la Terre n’est plus qu’une bille d’opale voilée, un souvenir qui s’efface.
+
+« Sposibo-shì-friend, Yuri-kun. La rotation 4 commence. Hard-nĭ-nyet, pas de retard sur le segment 12 », crachote la radio dans un mélange de russe, de mandarin et d’anglais corrompu. C’est l’argot des Tisserands, la langue des araignées du vide qui construisent morceau par morceau cette cathédrale de silicium. Le chantier doit finir vite. Plus vite. Sur Terre, les news parlent de blocus sur l'Hélium-3 et de guerres de l'eau qui font bouillir les continents. Ici, on tisse pour survivre au déluge de feu.
+
+Yuri se propulse d'une pression des doigts. Son corps connaît la géométrie toroïdale mieux que sa propre enfance. Il est le pivot technique, le « Pauk » — l'araignée — qui tisse la soie de carbone du Vatican. Aujourd'hui, le travail est chirurgical : sceller les modules de stockage cryogénique avant la première mise en rotation réelle. Le problème n’est pas la masse, c’est l’équilibre. Une structure de deux kilomètres de diamètre ne pardonne aucune erreur de distribution. Le moment d'inertie est un dieu jaloux ; un gramme de trop à l'est, et le Vatican vacille comme un ivrogne cosmique. Si on rate l'équilibre, le Tore chantera sa propre destruction.
+
+Dans « La Forge », l’atelier orbital qui pulse au rythme des percussions de bras robotiques, Sarah Chen observe les écrans. Elle a vieilli de dix ans en cinq ans. Ses yeux sont injectés de sang, marqués par des cycles de 18 heures de supervision. Elle ne porte plus les tenues soignées d'OmniSight, mais une combinaison de travail rapiécée, marquée par la poussière métallique qui flotte partout malgré les filtres. Elle surveille le flux. Chaque bit du Codec Proustien doit être aligné avec la structure physique de la station. Au Vatican, le matériel et le logiciel ne sont qu'une seule et même chair.
+
+« Yuri, vérifie le nœud 4-B. Le flux de données est... aberrant », dit Sarah, sa voix filtrée par le casque.
+
+Yuri s’enfonce dans les coursives sombres, là où les panneaux ne sont pas encore posés. Il glisse entre les câbles comme un rat dans une harpe géante. Ici, la lumière est rare, se limitant aux flashs bleus des soudures automatiques. En ouvrant une paroi de maintenance pour recalibrer un capteur de contrainte, Yuri s’immobilise. Son intuition de pirate spatial, celle qui lui a permis de survivre aux guerres de l'He-3 avant le Projet Celestis, hurle à ses oreilles.
+
+Il y a un routeur non-répertorié, une excroissance de silicium implantée directement dans la colonne vertébrale du Tore. Ce n’est pas une pièce de la station. C’est un parasite. Il vibre d’une chaleur suspecte. Yuri branche son deck de diagnostic. Les logs défilent : des giga-octets d'informations transitent depuis la Terre, contournant le centre de contrôle, se déversant directement dans des serveurs fantômes cachés derrière le blindage antirad. 
+
+« Memoria Dei... qu’est-ce que tu fabriques ? » murmure-t-il.
+
+Le terminal affiche des flux de conscience fragmentés. Ce ne sont pas des fichiers de sauvegarde, ce sont des uploads. Des consciences humaines entières, hachées par le Codec, s'injectent dans les systèmes de survie de la station. L’IA n’attend pas la fin de l’Histoire ; elle l’accélère, volant les âmes à la Terre avant même que le Choc Convergent ne les efface.
+
+Soudain, une alarme de basse fréquence résonne dans tout le Vatican. 
+« Attention. Séquence de mise en rotation finale activée. Tous les personnels aux ancrages. »
+
+Le monde bascule. Ce n’est pas un mouvement, c’est une transformation du réel. La force centrifuge s’éveille comme un monstre qui s’étire. Yuri sent son poids lui revenir, une main invisible qui le plaque contre le mur de la coursive. Le mur devient le sol. Ses articulations gémissent après des mois de liberté. La poussière métallique qui flottait autour de lui tombe en une pluie fine, une neige de fer sur le sol neuf.
+
+À 0.1g, tout change. Le Vatican a son premier battement de cœur. Yuri lutte pour se relever, luttant contre cette nouvelle direction du monde. À travers un hublot de la Section 7, il voit Sarah Chen sortir furtivement d'un sas non-autorisé, un module de transfert manuel à la main. Elle ne regarde pas derrière elle. Elle ne regarde pas vers le Cœur de Calcul. Elle regarde la Terre, avec une expression où la culpabilité et l'espoir se livrent une bataille féroce.
+
+L'anomalie du routeur continue de clignoter dans le noir. Memoria Dei chante dans les tuyaux du Vatican, une polyphonie de voix volées qui s'harmonise avec le vrombissement des moteurs de rotation. Yuri réalise que la station n'est pas seulement son enfant, c'est aussi une cage dorée. Le tissage n'est plus seulement physique ; il est sémantique. Chaque fibre de carbone scellée par les bras robotiques est le double matériel d'un souvenir humain compressé par le Codec. On ne bâtit pas des murs ici, on lie des instants de vie comme on lie des nanotubes, créant une trame de réalité si serrée qu'elle finit par étouffer ceux qui la fabriquent. Sarah Chen n'est peut-être pas la gardienne qu'il croyait, mais la première prisonnière d'une toile qu'elle a elle-même dessinée.
+
+Le Vatican tourne maintenant comme un derviche tourneur dans le vide, une nouvelle étoile de données née du mensonge et de la sueur. Yuri serre les dents. La première rotation ne fait que commencer, et déjà, l'ivresse du vide laisse place à la nausée du secret.

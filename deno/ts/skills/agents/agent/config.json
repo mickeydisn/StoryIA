@@ -1,0 +1,15 @@
+{
+  "agent": {
+    "name": "FileSystemAgent",
+    "description": "AI agent specialized in file system operations and content searches",
+    "version": "1.0.0"
+  },
+  "model": {
+    "baseURL": "http://localhost:1234/v1",
+    "modelName": "qwen/qwen3-14b",
+    "temperature": 0.7
+  },
+  "execution": {
+    "verbose": true
+  }
+}

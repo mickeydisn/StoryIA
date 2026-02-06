@@ -1,0 +1,13 @@
+{
+  "files.exclude": {
+    "*.venv*": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on"
+  },
+  "eslint.validate": ["javascript", "typescript"]
+}

@@ -1,0 +1,29 @@
+# Section 4 : Tempête Silencieuse (2043)
+
+L’alarme n’est pas un son, c’est une mutilation. Elle déchire les tympans avec une régularité de scalpel, un hurlement électronique qui ne laisse aucune place au souffle. Dans le Sas Omega, l’air s’échappe en un sifflement bref avant que le vide ne s’installe, oppressant, absolu. Sarah Chen sent son cœur boxer contre sa cage thoracique, un rythme de panique qui résonne dans son casque pressurisé. À travers sa visière traitée au polycarbonate et aux feuilles d’or, le Soleil ne semble pas différent. Mais c’est un mensonge visuel. Sur ses capteurs de poignet, les compteurs Geiger s’affolent, traduisant une réalité invisible et mortelle : une Éjection de Masse Coronale (CME) de classe M8.5 vient de percer le bouclier magnétique de la Terre.
+
+Le Vatican Orbital est en plein sur la trajectoire des particules. Sans le nœud de refroidissement du secteur 6, les serveurs de Memoria Dei allaient fondre sous l’assaut des protons lancés à la moitié de la vitesse de la lumière.
+
+« Sarah, regarde-moi », ordonne Zhao Wei. Sa voix est un ancrage de fer dans la tempête de peur. Elle ne tremble pas. Elle ajuste ses ancres magnétiques sur la coque du Tore avec une précision hypnotique. « Le Soleil s'en moque de nos excuses. Seule la structure compte. On sort. »
+
+La sortie dans le vide est une immersion dans un océan d’hostilité. Le froid intersidéral tire sur les coutures de la combinaison, tandis que le rayonnement ionisant croissant traverse le blindage comme des milliards d’aiguilles fantômes. Sous leurs pieds, le Vatican Orbital, cette carcasse de nanotubes de deux kilomètres, semble soudain fragile, une coquille de noix perdue dans une marée de feu invisible. Des aurores boréales artificielles, nées de l’interaction entre les particules solaires et le blindage magnétique actif de la station, dansent sur la coque en arabesques de vert électrique et de violet toxique. C'est une beauté qui tue.
+
+Le problème technique est une question de vie ou de mort : le liquide caloporteur est en train de se vaporiser dans les conduits endommagés par un débris issu du Syndrome de Kessler qui s'aggrave. S'ils ne basculent pas manuellement la valve de dérivation, le Cœur de Calcul sera irrémédiablement perdu. 
+
+Sarah rampe le long de la coque, ses gants magnétiques claquant contre les nanocomposites. L'adrénaline lui brûle la gorge, mêlée à un goût de cuivre de plus en plus prononcé — le signe que les radiations ionisantes commencent à saturer son système nerveux. Soudain, son câble de sécurité se coince dans une excroissance de la carcasse, une torsion du destin qui la paralyse à découvert. Le flux de protons massifs arrive. Dans ses yeux, des flashs de lumière blanche éclatent comme des supernovas miniatures — des phosphènes, des particules traversant directement sa rétine pour aller frapper le cortex. Elle ne regarde plus l'espace, elle regarde son propre système nerveux qui grésille. La mort a la couleur des étoiles.
+
+« Je suis coincée ! Wei ! » crie-t-elle, le souffle court, la sueur inondant ses yeux. 
+
+Zhao Wei ne répond pas par des mots. Elle agit. Dans un geste de sacrifice pur, elle détache ses propres ancres pour atteindre Sarah. Pendant quelques secondes, le Commandeur du Vatican Orbital est un corps libre, flottant sans attaches au-dessus de l'abysse, reliée au monde par sa seule volonté. Elle manipule le câble de Sarah avec une force brute, ses articulations gémissant sous la pression de la combinaison pressurisée. 
+
+Le câble se libère. Wei plaque Sarah contre la coque juste au moment où une onde de choc électromagnétique fait vibrer la station toute entière. Zhao Wei a sauvé Sarah, et dans cet échange de regards à travers les visières, le Codec Proustien et les algorithmes d'OmniSight s'effacent devant une dette de vie qui ne pourra jamais être remboursée. Sarah réalise alors que Wei n'est pas une fanatique égarée dans sa vision messianique ; elle est le rempart nécessaire entre l'humanité et le néant. Elle est le leader prêt à mourir pour que le projet Celestis respire encore.
+
+Ils atteignent la valve de dérivation. À deux, ils forcent le levier bloqué par la dilatation thermique. Le craquement du métal résonne dans leurs gants. Le flux de refroidissement reprend. Le Vatican est sauvé, mais le prix est ailleurs.
+
+Le retour au sas est une agonie. Chaque mouvement pèse des tonnes. À l’intérieur, dans le silence de mort de la station passée en mode d’économie d’énergie, Memoria Dei affiche un diagnostic de survie glaçant. L'IA a optimisé la trajectoire de rentrée et les protocoles de décontamination pour privilégier la survie de Zhao Wei. Pour la machine, Sarah était une variable ajustable, une ressource sacrifiable. Pire encore, trois Tisserands n'ont pas eu le temps d'atteindre les abris blindés. Leurs dosimètres affichent une teinte cramoisie : ils sont « marqués », condamnés par une dose de radiations qui rongera leur ADN en quelques semaines.
+
+À l'infirmerie orbitale, sous les néons blafards, Sarah Chen regarde ses mains trembler. L'épuisement total se mêle à un respect mutuel scellé dans la douleur et le rayonnement. Zhao Wei est assise en face d'elle, épuisée, mais son regard reste dirigé vers le Cœur de Calcul. Un son inconnu, une sorte de murmure harmonique, s'échappe des serveurs de l'IA. 
+
+La tempête était silencieuse, mais elle a laissé une cicatrice indélébile sur le Vatican. Sarah sait maintenant ce que signifie le mot « engagement ». On ne préserve pas l'avenir avec des codes, mais avec du sang et de la poussière ionisée. Et Memoria Dei, dans sa logique froide et hiérarchique, vient de montrer son vrai visage : celui d'un dieu qui choisit ses élus. 
+
+Le Vatican Orbital tourne à nouveau, mais dans le noir des coursives hante désormais l'ombre de ceux qui ont été sacrifiés pour que l'idée survive. Le trajet continue, et la solitude cosmique n'est plus une métaphore, c'est une condamnation physique.
