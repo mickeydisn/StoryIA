@@ -6,28 +6,26 @@ import { generateTreeHtml } from "../../etc/treeHelpers.ts";
 async function generateTreeHtmlForMenu(): Promise<string> {
   const treeData: any = {};
 
+  // Build tree structure for database_build
+  try {
+    treeData.ai_context = await buildDirectoryTree("../ai_context");
+  } catch (error) {
+    console.warn(
+      "Could not load database_build directory:",
+      error instanceof Error ? error.message : String(error),
+    );
+    treeData.database_build = {};
+  }
+
   // Build tree structure for database
   try {
     treeData.database = await buildDirectoryTree("../database");
   } catch (error) {
-    console.warn("Could not load database directory:", error instanceof Error ? error.message : String(error));
+    console.warn(
+      "Could not load database directory:",
+      error instanceof Error ? error.message : String(error),
+    );
     treeData.database = {};
-  }
-
-  // Build tree structure for database_build
-  try {
-    treeData.database_build = await buildDirectoryTree("../database_build");
-  } catch (error) {
-    console.warn("Could not load database_build directory:", error instanceof Error ? error.message : String(error));
-    treeData.database_build = {};
-  }
-
-  // Build tree structure for chapiter
-  try {
-    treeData.chapiter = await buildDirectoryTree("../chapiter");
-  } catch (error) {
-    console.warn("Could not load chapiter directory:", error instanceof Error ? error.message : String(error));
-    treeData.chapiter = {};
   }
 
   return generateTreeHtml(treeData, null); // No limit for sidebar - show all directories
