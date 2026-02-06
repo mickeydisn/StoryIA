@@ -1,3 +1,4 @@
-/sandustry
-/img/save
+.venv
+.vscode
+.config*
 *.DS_store
