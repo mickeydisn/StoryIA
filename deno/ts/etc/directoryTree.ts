@@ -273,7 +273,7 @@ ${indent}</div>`;
     .map(([rootName, rootNode]) => generateNodeHtml(rootNode, rootName))
     .join("");
 
-  return `<div class="${treeClass}">${html}\n</div>`;
+  return `<div class="directory-tree ${treeClass}">${html}\n</div>`;
 }
 
 /**

@@ -211,3 +211,6 @@ code [Complete code example]
 - [Link 2](url)
 - [Documentation](url)
 ```
+
+> Stay Clean, Consise , Short , do not include redonding information, or no
+> usefull info

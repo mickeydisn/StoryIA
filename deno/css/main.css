@@ -1,4 +1,5 @@
 @import url(markdown-content.css);
+@import url(directory-tree.css);
 
 /* Global Styles */
 * {
@@ -145,6 +146,7 @@ body {
 #page-content {
   margin: 1rem;
 }
+
 /* Page Content Components */
 .page-content-box {
   height: 100vh;
@@ -314,42 +316,16 @@ body {
   transform: translateX(-2px);
 }
 
-/* File Tree in Sidebar */
+/* Legacy Tree Container Classes - Now use .directory-tree */
 .file-tree-sidebar {
-  font-size: 0.85rem;
-  max-height: 300px;
-  overflow-y: auto;
+  /* Kept for backward compatibility - maps to .directory-tree.sidebar */
 }
 
-.file-tree-sidebar .tree-item {
-  margin: 0.1rem 0;
-}
-
-.file-tree-sidebar .tree-toggle {
-  padding: 0.3rem 0.4rem;
-  font-size: 0.8rem;
-}
-
-.file-tree-sidebar .tree-children {
-  margin-left: 1.2rem;
-  padding-left: 0.6rem;
-}
-
-.file-tree-sidebar .tree-file .file-link {
-  padding: 0.25rem 0.4rem;
-  font-size: 0.8rem;
-}
-
-/* Full File Tree */
 .file-tree-full {
-  background: white;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  padding: 1.5rem;
-  max-height: 70vh;
-  overflow-y: auto;
+  /* Kept for backward compatibility - maps to .directory-tree.full-page */
 }
 
+/* Header */
 header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -431,7 +407,8 @@ nav {
 }
 
 /* Content Sections */
-.schema-content, .chapters-content {
+.schema-content,
+.chapters-content {
   background: white;
   padding: 2rem;
   border-radius: 10px;
@@ -439,7 +416,8 @@ nav {
   margin-top: 2rem;
 }
 
-.schema-content h2, .chapters-content h2 {
+.schema-content h2,
+.chapters-content h2 {
   color: #2c3e50;
   margin-bottom: 1.5rem;
   border-bottom: 2px solid #3498db;
@@ -447,33 +425,10 @@ nav {
 }
 
 /* Loading states */
-#schema-data p, #chapters-list p {
+#schema-data p,
+#chapters-list p {
   color: #7f8c8d;
   font-style: italic;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .nav-link {
-    text-align: center;
-  }
-
-  main {
-    padding: 0 1rem;
-  }
-
-  .stats {
-    grid-template-columns: 1fr;
-  }
-
-  .stat-card {
-    padding: 1.5rem;
-  }
 }
 
 /* Recent Files Section */
@@ -489,195 +444,9 @@ nav {
   font-size: 1.4rem;
 }
 
-/* Recent Files Tree (compact version) */
-.recent-files-tree {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 6px;
-  padding: 0.8rem;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.recent-files-tree .tree-item {
-  margin: 0.1rem 0;
-}
-
-.recent-files-tree .tree-toggle {
-  padding: 0.3rem 0.4rem;
-  font-size: 0.85rem;
-}
-
-.recent-files-tree .tree-children {
-  margin-left: 1.4rem;
-  padding-left: 0.8rem;
-}
-
-.recent-files-tree .tree-file .file-link {
-  padding: 0.3rem 0.6rem;
-  font-size: 0.85rem;
-}
-
-/* File Tree Structure */
-.file-tree {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  background: white;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  padding: 1rem;
-  max-height: 600px;
-  overflow-y: auto;
-}
-
-.tree-item {
-  position: relative;
-  margin: 0.1rem 0;
-}
-
-.tree-directory {
-  cursor: pointer;
-  user-select: none;
-}
-
-.tree-toggle {
-  padding: 0.4rem 0.6rem;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
-}
-
-.tree-toggle:hover {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  color: #2c3e50;
-}
-
-.tree-toggle::before {
-  font-size: 1.1em;
-}
-
-.tree-children {
-  margin-left: 1.8rem;
-  padding-left: 1rem;
-  border-left: 2px solid #3498db;
-  position: relative;
-}
-
-.tree-children::before {
-  content: "";
-  position: absolute;
-  left: -2px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, #3498db, #bdc3c7);
-}
-
-.tree-file {
-  margin: 0.15rem 0;
-}
-
-.tree-file .file-link {
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  border: 1px solid transparent;
-  font-weight: 400;
-}
-
-.tree-file .file-link::before {
-  content: "📄";
-  font-size: 1em;
-}
-
-.tree-file .file-link:hover {
-  background: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%);
-  color: #0066cc;
-  text-decoration: none;
-  border-color: #b3d7ff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transform: translateX(2px);
-}
-
-.more-link {
-  font-style: italic;
-  color: #7f8c8d !important;
-  padding: 0.6rem 1rem !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  margin-top: 0.5rem;
-  border: 1px dashed #bdc3c7 !important;
-}
-
-.more-link:hover {
-  color: #3498db !important;
-  background: #f8f9fa !important;
-  border-color: #3498db !important;
-}
-
-/* Tree expand/collapse functionality */
-.tree-directory:not(.expanded) .tree-children {
-  display: none;
-}
-
-.tree-children {
-  animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    max-height: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    max-height: 1000px;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive tree */
-@media (max-width: 768px) {
-  .file-tree {
-    font-size: 0.9rem;
-    padding: 0.8rem;
-  }
-
-  .tree-children {
-    margin-left: 1.2rem;
-    padding-left: 0.8rem;
-  }
-
-  .tree-toggle, .tree-file .file-link {
-    padding: 0.3rem 0.5rem;
-  }
-}
-
 /* Files Section */
-.files-content, .file-viewer {
+.files-content,
+.file-viewer {
   background: white;
   padding: 2rem;
   border-radius: 10px;
@@ -685,7 +454,8 @@ nav {
   margin-top: 2rem;
 }
 
-.files-content h2, .file-viewer .file-header h2 {
+.files-content h2,
+.file-viewer .file-header h2 {
   color: #2c3e50;
   margin-bottom: 1.5rem;
   border-bottom: 2px solid #3498db;
@@ -723,15 +493,6 @@ nav {
 
 .file-link:hover {
   color: #3498db;
-}
-
-.more-link {
-  font-style: italic;
-  color: #7f8c8d !important;
-}
-
-.more-link:hover {
-  color: #3498db !important;
 }
 
 /* File Viewer */
@@ -781,4 +542,28 @@ nav {
 
 .htmx-request::after {
   content: " ⏳";
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-link {
+    text-align: center;
+  }
+
+  main {
+    padding: 0 1rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
 }

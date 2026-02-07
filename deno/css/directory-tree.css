@@ -1,0 +1,241 @@
+/* ==========================================================================
+   Directory Tree Component Styles
+   Main container: .directory-tree
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Base Container
+   -------------------------------------------------------------------------- */
+.directory-tree {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
+  font-size: 0.80rem;
+  line-height: 1;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Tree Items
+   -------------------------------------------------------------------------- */
+.directory-tree .tree-item {
+  position: relative;
+  margin: 0.1rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   Directory Nodes
+   -------------------------------------------------------------------------- */
+.directory-tree .tree-directory {
+  cursor: pointer;
+  user-select: none;
+}
+
+.directory-tree .tree-toggle {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.directory-tree .tree-toggle:hover {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #2c3e50;
+}
+
+/* --------------------------------------------------------------------------
+   Tree Children (Nested Items)
+   -------------------------------------------------------------------------- */
+.directory-tree .tree-children {
+  margin-left: 1rem;
+  padding-left: 0.2rem;
+  border-left: 2px solid #3498db;
+  position: relative;
+}
+
+.directory-tree .tree-children::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #3498db, #bdc3c7);
+}
+
+/* Collapsed state */
+.directory-tree .tree-directory:not(.expanded) > .tree-children {
+  display: none;
+}
+
+/* Expand animation */
+.directory-tree .tree-children {
+  animation: treeSlideDown 0.3s ease-out;
+}
+
+@keyframes treeSlideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   File Nodes
+   -------------------------------------------------------------------------- */
+.directory-tree .tree-file {
+  margin: 0.15rem 0;
+}
+
+.directory-tree .tree-file .file-link {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: white;
+  border: 1px solid transparent;
+  font-weight: 400;
+}
+
+.directory-tree .tree-file .file-link::before {
+  content: "📄";
+  font-size: 1em;
+}
+
+.directory-tree .tree-file .file-link:hover {
+  background: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%);
+  color: #0066cc;
+  text-decoration: none;
+  border-color: #b3d7ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateX(2px);
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar Variant (Compact)
+   -------------------------------------------------------------------------- */
+.directory-tree.sidebar {
+  font-size: 0.85rem;
+  max-height: 300px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.directory-tree.sidebar .tree-item {
+  margin: 0.1rem 0;
+}
+
+.directory-tree.sidebar .tree-toggle {
+  padding: 0.3rem 0.4rem;
+  font-size: 0.8rem;
+}
+
+.directory-tree.sidebar .tree-children {
+  margin-left: 1.2rem;
+  padding-left: 0.6rem;
+}
+
+.directory-tree.sidebar .tree-file .file-link {
+  padding: 0.25rem 0.4rem;
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   Full Page Variant
+   -------------------------------------------------------------------------- */
+.directory-tree.full-page {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-height: 70vh;
+}
+
+/* --------------------------------------------------------------------------
+   Recent Files Variant (Compact)
+   -------------------------------------------------------------------------- */
+.directory-tree.recent-files {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 0.8rem;
+  max-height: 300px;
+}
+
+.directory-tree.recent-files .tree-toggle {
+  padding: 0.3rem 0.4rem;
+  font-size: 0.85rem;
+}
+
+.directory-tree.recent-files .tree-children {
+  margin-left: 1.4rem;
+  padding-left: 0.8rem;
+}
+
+.directory-tree.recent-files .tree-file .file-link {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   More Link (View All)
+   -------------------------------------------------------------------------- */
+.directory-tree .more-link {
+  font-style: italic;
+  color: #7f8c8d !important;
+  padding: 0.6rem 1rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-top: 0.5rem;
+  border: 1px dashed #bdc3c7 !important;
+}
+
+.directory-tree .more-link:hover {
+  color: #3498db !important;
+  background: #f8f9fa !important;
+  border-color: #3498db !important;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Design
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .directory-tree {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .directory-tree .tree-children {
+    margin-left: 1.2rem;
+    padding-left: 0.8rem;
+  }
+
+  .directory-tree .tree-toggle,
+  .directory-tree .tree-file .file-link {
+    padding: 0.3rem 0.5rem;
+  }
+}
