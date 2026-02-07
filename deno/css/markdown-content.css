@@ -1,0 +1,384 @@
+.markdown-content {
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: white;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.3rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  ul,
+  ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  pre {
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    color: #e8f4fd;
+  }
+
+  code {
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+    font-size: 0.9em;
+
+    border-radius: 3px;
+  }
+
+  /* YAML Frontmatter Display */
+  pre.yaml-frontmatter {
+    background: rgba(52, 152, 219, 0.1);
+    border: 1px solid rgba(52, 152, 219, 0.4);
+    border-left: 4px solid #3498db;
+    padding: 0.75rem 1rem;
+    margin: 0 0 1.5rem 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  pre.yaml-frontmatter code {
+    color: #5dade2;
+    font-size: 0.85em;
+    line-height: 1.5;
+  }
+
+  blockquote {
+    border-left: 4px solid #3498db;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  th,
+  td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  th {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 600;
+  }
+
+  td {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Checkboxes in Markdown */
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    position: relative;
+    margin-right: 8px;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+  }
+
+  input[type="checkbox"]:checked {
+    background: #27ae60;
+    border-color: #27ae60;
+  }
+
+  input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  input[type="checkbox"]:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  input[type="checkbox"]:checked:hover {
+    background: #2ecc71;
+    border-color: #2ecc71;
+  }
+
+  /* ============================================
+     COLLAPSIBLE SECTIONS (Headers)
+     ============================================ */
+
+  .collapsible-header {
+    cursor: pointer;
+    position: relative;
+    padding-left: 1.5rem;
+    user-select: none;
+    transition: all 0.2s ease;
+  }
+
+  .collapsible-header::before {
+    content: "▼";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    color: #3498db;
+    transition: transform 0.3s ease, color 0.2s ease;
+  }
+
+  .collapsible-header.collapsed::before {
+    transform: translateY(-50%) rotate(-90deg);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .collapsible-header:hover {
+    color: #3498db;
+  }
+
+  .collapsible-header:hover::before {
+    color: #5dade2;
+  }
+
+  .section-hidden {
+    display: none !important;
+  }
+
+  /* ============================================
+     COLLAPSIBLE LISTS (Nested lists only)
+     ============================================ */
+
+  /* Toggle button for nested lists */
+  .list-toggle {
+    background: rgba(52, 152, 219, 0.2);
+    border: 1px solid rgba(52, 152, 219, 0.4);
+    color: #3498db;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.65rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+  }
+
+  .list-toggle:hover {
+    background: rgba(52, 152, 219, 0.3);
+    border-color: rgba(52, 152, 219, 0.6);
+  }
+
+  .list-toggle .toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 0.65rem;
+  }
+
+  .list-toggle.collapsed .toggle-icon {
+    transform: rotate(-90deg);
+  }
+
+  ul.list-collapsed,
+  ol.list-collapsed {
+    display: none;
+  }
+
+  /* ============================================
+     COLLAPSIBLE TABLES
+     ============================================ */
+
+  .table-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .table-toggle:hover {
+    background: rgba(52, 152, 219, 0.3);
+    border-color: rgba(52, 152, 219, 0.5);
+  }
+
+  .table-toggle .toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .table-toggle.collapsed .toggle-icon {
+    transform: rotate(-90deg);
+  }
+
+  tbody.rows-hidden {
+    display: none;
+  }
+
+  .table-row-expandable {
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+  }
+
+  .table-row-expandable:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .table-row-expandable.row-hidden {
+    display: none;
+  }
+
+  /* Visual hint for double-click to hide */
+  tbody tr {
+    position: relative;
+  }
+
+  tbody tr::after {
+    content: "";
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  tbody tr:hover::after {
+    opacity: 1;
+  }
+
+  /* ============================================
+     ANIMATIONS & TRANSITIONS
+     ============================================ */
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .collapsible-header + *:not(.section-hidden) {
+    animation: fadeIn 0.3s ease;
+  }
+
+  /* ============================================
+     NESTED COLLAPSIBLE BEHAVIOR
+     ============================================ */
+
+  /* When parent is collapsed, children indicators should be hidden */
+  .section-hidden .collapsible-header::before {
+    display: none;
+  }
+
+  /* Indentation for nested collapsible elements */
+  h2.collapsible-header {
+    margin-left: 0;
+  }
+
+  h3.collapsible-header {
+    margin-left: 0.5rem;
+  }
+
+  h4.collapsible-header {
+    margin-left: 1rem;
+  }
+
+  h5.collapsible-header {
+    margin-left: 1.5rem;
+  }
+
+  h6.collapsible-header {
+    margin-left: 2rem;
+  }
+
+  /* ============================================
+     ACCESSIBILITY
+     ============================================ */
+
+  .collapsible-header:focus,
+  .list-toggle:focus,
+  .table-toggle:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+  }
+
+  /* Screen reader only text */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}

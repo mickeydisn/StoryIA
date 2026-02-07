@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "server": "deno run --allow-net --allow-read ./ts/server.ts",
+    "server": "deno run  --allow-net --allow-read  --watch ./ts/server.ts",
     "agent4": "deno run --allow-net --allow-read --allow-write --allow-env ts/skills/agents/files_agent_v4/main.ts",
     "agent6": "deno run --allow-net --allow-read --allow-write --allow-env ts/skills/agents/files_agent_v6/main.ts"
   },

@@ -45,9 +45,11 @@ params:
 2. **Prerequisites** - Required knowledge, tools, or setup
 3. **Step-by-Step Instructions** - Detailed implementation steps
 4. **Examples and Use Cases** - Multiple practical examples
-5. **Testing and Validation** - How to verify implementation
-6. **Advanced Topics** - Optional advanced concepts
-7. **References** - Additional resources and links id need
+5. **Best Practices** - Recommendations and guidelines
+6. **Troubleshooting** - Common issues and solutions
+7. **Testing and Validation** - How to verify implementation
+8. **Advanced Topics** - Optional advanced concepts
+9. **References** - Additional resources and links
 
 ## Step 2: Write Comprehensive Content
 
@@ -76,11 +78,19 @@ For each step:
 
 ### Examples and Use Cases
 
-- **Basic example** - Simple, straightforward implementation
-- **Advanced example** - Complex scenario with multiple features, only if the
-  case need it , or user ask for
+Include multiple examples:
 
-## Step 3: Check Best Practices in documentation
+- **Basic example** - Simple, straightforward implementation
+- **Advanced example** - Complex scenario with multiple features
+- **Real-world example** - Practical application
+- **Edge case example** - Handling unusual situations
+
+## Step 3: Add Supporting Content
+
+### Best Practices Section
+
+```markdown
+## Best Practices
 
 ### Code Quality
 
@@ -99,17 +109,56 @@ For each step:
 - Validate all inputs
 - Use secure defaults
 - Follow security best practices
+```
+
+### Troubleshooting Section
+
+```markdown
+## Common Issues and Solutions
+
+### Issue 1: Description
+
+**Problem**: Detailed description of the issue **Solution**: Step-by-step
+resolution **Prevention**: How to avoid this issue
+
+### Issue 2: Description
+
+**Problem**: Detailed description of the issue **Solution**: Step-by-step
+resolution **Prevention**: How to avoid this issue
+```
+
+## Step 4: Include Testing Strategies
+
+### Manual Testing
+
+````markdown
+## Manual Testing
+
+1. **Setup test environment**
+   ```bash
+   # Commands to set up testing
+   ```
+````
+
+2. **Test basic functionality**
+
+   ```bash
+   # Commands to test basic features
+   ```
+
+3. **Test edge cases**
+   ```bash
+   # Commands to test unusual scenarios
+   ```
 
 ## Step 5: Add Advanced Topics
 
 ### Optional Advanced Sections
 
-anything advance the documentation need to know about the architecture of the
-topic
-
+- **Performance optimization** - Advanced performance techniques
 - **Integration patterns** - How to integrate with other systems
 - **Customization options** - Ways to customize the implementation
-- **Performance optimization** - Advanced performance techniques
+- **Future considerations** - What to consider for future development
 
 ## Step 6: Review and Validate
 
@@ -118,6 +167,9 @@ topic
 - [ ] All steps are clearly explained
 - [ ] Code examples are complete and working
 - [ ] Examples cover different scenarios
+- [ ] Best practices are included
+- [ ] Troubleshooting covers common issues
+- [ ] Testing strategies are comprehensive
 - [ ] Documentation is well-structured
 - [ ] Links and references are current
 
@@ -134,6 +186,8 @@ topic
 ### Update Guidelines
 
 - **Version tracking** - Document changes and versions
+- **Feedback collection** - Gather user feedback
+- **Regular reviews** - Schedule periodic reviews
 - **Example updates** - Keep examples current
 - **Link maintenance** - Check external links
 
@@ -195,6 +249,31 @@ code [Complete code example]
 
 [Complex implementation with multiple features]
 
+### Real-World Example
+
+[Practical application scenario]
+
+## Best Practices
+
+### [Category 1]
+
+- Best practice 1
+- Best practice 2
+- Best practice 3
+
+### [Category 2]
+
+- Best practice 1
+- Best practice 2
+- Best practice 3
+
+## Troubleshooting
+
+### Issue: [Description]
+
+**Problem**: [Detailed problem description] **Solution**: [Step-by-step
+resolution] **Prevention**: [How to avoid this issue]
+
 ## Testing and Validation
 
 ### Manual Testing
@@ -204,6 +283,16 @@ code [Complete code example]
 ### Automated Testing
 
 [Automated testing examples]
+
+## Advanced Topics
+
+### [Advanced Topic 1]
+
+[Advanced concepts and techniques]
+
+### [Advanced Topic 2]
+
+[Additional advanced content]
 
 ## References
 
