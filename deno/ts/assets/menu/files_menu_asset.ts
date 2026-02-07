@@ -1,34 +1,43 @@
 import { MenuCardAsset } from "../base/asset_base.ts";
-import { buildDirectoryTree } from "../../etc/buildDirectoryTree.ts";
-import { generateTreeHtml } from "../../etc/treeHelpers.ts";
+import {
+  buildDirectoryTree,
+  DirectoryNode,
+  FileNode,
+  generateTreeHtml,
+  TreeData,
+} from "../../etc/directoryTree.ts";
+
+// Custom file click handler for the menu - uses HTMX to load files
+function menuFileClickHandler(node: FileNode, _name: string): string {
+  const encodedPath = encodeURIComponent(node.path);
+  return `href="/page/file/${encodedPath}" hx-get="/page/file/${encodedPath}" hx-target="#page-content"`;
+}
+
+// Custom directory click handler for the menu - toggles expansion
+function menuDirectoryClickHandler(
+  _node: DirectoryNode,
+  _name: string,
+): string {
+  return `onclick="this.parentElement.classList.toggle('expanded')"`;
+}
 
 // Helper function to generate tree HTML for menu sidebar (compact)
 async function generateTreeHtmlForMenu(): Promise<string> {
-  const treeData: any = {};
+  // Build tree from multiple directories with filter
+  const treeData = await buildDirectoryTree(
+    ["../database", "../ai_context"],
+    { filters: ["*.md"] },
+  );
 
-  // Build tree structure for database_build
-  try {
-    treeData.ai_context = await buildDirectoryTree("../ai_context");
-  } catch (error) {
-    console.warn(
-      "Could not load database_build directory:",
-      error instanceof Error ? error.message : String(error),
-    );
-    treeData.database_build = {};
-  }
-
-  // Build tree structure for database
-  try {
-    treeData.database = await buildDirectoryTree("../database");
-  } catch (error) {
-    console.warn(
-      "Could not load database directory:",
-      error instanceof Error ? error.message : String(error),
-    );
-    treeData.database = {};
-  }
-
-  return generateTreeHtml(treeData, null); // No limit for sidebar - show all directories
+  // Generate HTML with custom handlers for menu behavior
+  return generateTreeHtml(treeData, {
+    maxFiles: undefined, // No limit for sidebar - show all directories
+    fileClickHandler: menuFileClickHandler,
+    directoryClickHandler: menuDirectoryClickHandler,
+    treeClass: "file-tree-sidebar",
+    fileClass: "tree-file",
+    directoryClass: "tree-directory",
+  });
 }
 
 // Files menu card asset
@@ -37,11 +46,7 @@ export class FilesMenuAsset extends MenuCardAsset {
   title = "📄 Files";
   override content = async (): Promise<string> => {
     const treeHtml = await generateTreeHtmlForMenu();
-    return `
-<div class="file-tree-sidebar">
-    ${treeHtml}
-</div>
-    `;
+    return treeHtml;
   };
 }
 

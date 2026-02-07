@@ -32,7 +32,7 @@ body {
 }
 
 .right-sidebar {
-  width: 350px;
+  width: 450px;
   background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
   color: white;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
@@ -142,6 +142,9 @@ body {
   letter-spacing: 0.5px;
 }
 
+#page-content {
+  margin: 1rem;
+}
 /* Page Content Components */
 .page-content-box {
   height: 100vh;
@@ -163,6 +166,7 @@ body {
 }
 
 .page-content {
+  padding-bottom: 5rem;
   overflow-y: auto;
   max-height: calc(100vh - 4.3em);
 }
@@ -378,10 +382,6 @@ nav {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-main {
-  padding: 0 2rem;
-}
-
 /* Welcome Section */
 .welcome {
   text-align: center;
@@ -570,7 +570,6 @@ main {
 }
 
 .tree-toggle::before {
-  content: "📁";
   font-size: 1.1em;
 }
 
@@ -632,10 +631,6 @@ main {
   border: 1px dashed #bdc3c7 !important;
 }
 
-.more-link::before {
-  content: "📂";
-}
-
 .more-link:hover {
   color: #3498db !important;
   background: #f8f9fa !important;
@@ -645,10 +640,6 @@ main {
 /* Tree expand/collapse functionality */
 .tree-directory:not(.expanded) .tree-children {
   display: none;
-}
-
-.tree-directory.expanded .tree-toggle::before {
-  content: "📂";
 }
 
 .tree-children {

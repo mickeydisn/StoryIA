@@ -1,4 +1,7 @@
-import { AssetPageSection, PageSectionConfig } from "../../base/asset_page_section.ts";
+import {
+  AssetPageSection,
+  PageSectionConfig,
+} from "../../base/asset_page_section.ts";
 import { fileViewerAsset } from "./file_viewer_asset.ts";
 
 // Page with file viewer sections
@@ -13,16 +16,16 @@ export class PageSectionFilesAsset extends AssetPageSection {
         title: "References (Auto-loaded)",
         asset: fileViewerAsset,
         open: true,
-        params: { path: "database_build/_references.md" },
-        autoload: true
+        params: { path: "database/build_database/_references.md" },
+        autoload: true,
       },
       {
         id: "manual-load-references",
         title: "References (Manual Load)",
         asset: fileViewerAsset,
         open: false,
-        params: { path: "database_build/_references.md" },
-        autoload: false
+        params: { path: "database/build_database/_references.md" },
+        autoload: false,
       },
       {
         id: "custom-params",
@@ -30,8 +33,8 @@ export class PageSectionFilesAsset extends AssetPageSection {
         asset: fileViewerAsset,
         open: false,
         params: {}, // Empty params - will show textarea for user input
-        autoload: false
-      }
+        autoload: false,
+      },
     ];
   }
 }

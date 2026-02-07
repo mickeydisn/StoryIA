@@ -1,5 +1,9 @@
 import { ApiAsset } from "../base/asset_base.ts";
 import { RouterContext } from "oak";
+import {
+  buildDirectoryTree,
+  generateTreeHtml,
+} from "../../etc/directoryTree.ts";
 
 // Schema API asset
 export class SchemaApiAsset extends ApiAsset {
@@ -13,12 +17,12 @@ export class SchemaApiAsset extends ApiAsset {
             characters: 16,
             concepts: 24,
             locations: 15,
-            systems: 18
+            systems: 18,
           },
           chapters: 7,
-          lastUpdated: new Date().toISOString()
-        }
-      }
+          lastUpdated: new Date().toISOString(),
+        },
+      },
     );
   }
 }
@@ -39,9 +43,9 @@ export class ChaptersApiAsset extends ApiAsset {
           { id: 4, title: "Chapter 4", sections: 6 },
           { id: 5, title: "Chapter 5", sections: 7 },
           { id: 6, title: "Chapter 6", sections: 8 },
-          { id: 7, title: "Chapter 7", sections: 8 }
-        ]
-      }
+          { id: 7, title: "Chapter 7", sections: 8 },
+        ],
+      },
     );
   }
 }
@@ -54,41 +58,39 @@ export class FilesApiAsset extends ApiAsset {
     super(
       "/api/files",
       async (ctx: RouterContext<any>) => {
-        const { buildDirectoryTree } = await import("../../etc/buildDirectoryTree.ts");
-        const { generateTreeHtml } = await import("../../etc/treeHelpers.ts");
-
         try {
           const url = new URL(ctx.request.url);
-          const limit = url.searchParams.get('limit');
-          const maxFiles = limit ? parseInt(limit) : null;
+          const limit = url.searchParams.get("limit");
+          const maxFiles = limit ? parseInt(limit) : undefined;
 
-          const treeData: any = {};
+          // Build tree from multiple directories
+          const treeData = await buildDirectoryTree(
+            ["../database", "../chapiter"],
+          );
 
-          // Build tree structure for database
-          treeData.database = await buildDirectoryTree("../database");
+          // Generate HTML
+          const treeHtml = generateTreeHtml(treeData, { maxFiles });
 
-          // Build tree structure for chapiter
-          try {
-            treeData.chapiter = await buildDirectoryTree("../chapiter");
-          } catch (error) {
-            console.warn("Could not load chapiter directory:", error instanceof Error ? error.message : String(error));
-            treeData.chapiter = {};
-          }
-
-          // Generate HTML tree
-          const treeHtml = generateTreeHtml(treeData, maxFiles);
+          const hasMoreFiles = maxFiles &&
+            Object.keys(treeData).length > 0;
 
           return `
-<div class="${maxFiles ? 'recent-files-tree' : 'file-tree'}">
+<div class="${maxFiles ? "recent-files-tree" : "file-tree"}">
     ${treeHtml}
-    ${maxFiles && Object.keys(treeData).some(key => Object.keys(treeData[key]).length > maxFiles) ? `<div class="tree-item"><a href="/page/files" hx-get="/page/files" hx-target="#page-content" class="file-link more-link">📂 View All Files...</a></div>` : ''}
+    ${
+            hasMoreFiles
+              ? `<div class="tree-item"><a href="/page/files" hx-get="/page/files" hx-target="#page-content" class="file-link more-link">📂 View All Files...</a></div>`
+              : ""
+          }
 </div>
           `;
         } catch (error) {
           console.error("Error in files API:", error);
-          return `<p>Error loading files: ${error instanceof Error ? error.message : String(error)}</p>`;
+          return `<p>Error loading files: ${
+            error instanceof Error ? error.message : String(error)
+          }</p>`;
         }
-      }
+      },
     );
   }
 }
