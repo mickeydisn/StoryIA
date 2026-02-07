@@ -59,8 +59,9 @@ export class FilesApiAsset extends ApiAsset {
       "/api/files",
       async (ctx: RouterContext<any>) => {
         try {
-          const url = new URL(ctx.request.url);
-          const limit = url.searchParams.get("limit");
+          // Read limit from params (populated from POST body by BaseAsset)
+          const params = (ctx as any).params || {};
+          const limit = params.limit;
           const maxFiles = limit ? parseInt(limit) : undefined;
 
           // Build tree from multiple directories
@@ -79,7 +80,7 @@ export class FilesApiAsset extends ApiAsset {
     ${treeHtml}
     ${
             hasMoreFiles
-              ? `<div class="tree-item"><a href="/page/files" hx-get="/page/files" hx-target="#page-content" class="file-link more-link">📂 View All Files...</a></div>`
+              ? `<div class="tree-item"><a href="/page/files" hx-post="/page/files" hx-target="#page-content" class="file-link more-link">📂 View All Files...</a></div>`
               : ""
           }
 </div>

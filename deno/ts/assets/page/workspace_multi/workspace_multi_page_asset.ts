@@ -1,10 +1,15 @@
 import { AssetPageSection } from "../../base/asset_page_section.ts";
 import { directoryTreeMultiSectionAsset } from "./directory_tree_multi_section_asset.ts";
-import { SectionAsset } from "../../base/asset_base.ts";
+import { SectionAsset, TAssetParam } from "../../base/asset_base.ts";
 import { marked } from "npm:marked";
 
+// Params interface for concatenate files
+interface ConcatenateFilesParams extends TAssetParam {
+  paths?: string[];
+}
+
 // API Asset to concatenate selected files
-class ConcatenateFilesAsset extends SectionAsset {
+class ConcatenateFilesAsset extends SectionAsset<ConcatenateFilesParams> {
   override url = "/workspace/concatenate-files";
   title = "Concatenate Files";
 
@@ -13,16 +18,16 @@ class ConcatenateFilesAsset extends SectionAsset {
   };
 
   protected override async handleRequest(ctx: any): Promise<void> {
-    const url = new URL(ctx.request.url);
-    const pathsParam = url.searchParams.get("paths");
+    // Params are populated from POST body by BaseAsset
+    const pathsParam = this.params?.paths;
 
-    if (!pathsParam) {
+    if (!pathsParam || pathsParam.length === 0) {
       ctx.response.body = "<div class='error'>No files selected</div>";
       return;
     }
 
-    const paths = pathsParam.split(",");
-    let concatenatedContent = "";
+    const paths = pathsParam;
+    const fileDetails: string[] = [];
     const errors: string[] = [];
 
     for (const encodedPath of paths) {
@@ -31,23 +36,33 @@ class ConcatenateFilesAsset extends SectionAsset {
         const fullPath = `../${filePath}`;
         const fileContent = await Deno.readTextFile(fullPath);
         
-        // Add file separator with filename
+        // Get filename for summary
         const fileName = filePath.split("/").pop() || "Unknown";
-        concatenatedContent += `\n\n---\n\n## ${fileName}\n\n${fileContent}`;
+        
+        // Parse markdown content
+        const htmlContent = marked.parse(fileContent);
+        
+        // Wrap in details/summary
+        fileDetails.push(`<details class="file-preview-item" open>
+  <summary class="file-preview-summary">📄 ${fileName}</summary>
+  <div class="file-preview-content markdown-content">
+    ${htmlContent}
+  </div>
+</details>`);
       } catch (error) {
         errors.push(`Error reading ${filePath}: ${error instanceof Error ? error.message : String(error)}`);
       }
     }
 
+    // Build final HTML with file details and errors
+    let finalHtml = `<div class="files-preview-list">\n${fileDetails.join("\n")}</div>`;
+
     if (errors.length > 0) {
-      concatenatedContent += "\n\n---\n\n### Errors:\n" + errors.map(e => `- ${e}`).join("\n");
+      finalHtml += `\n<div class="files-preview-errors">\n  <h4>⚠️ Errors:</h4>\n  <ul>\n    ${errors.map(e => `<li>${e}</li>`).join("\n    ")}\n  </ul>\n</div>`;
     }
 
-    // Parse markdown
-    const htmlContent = marked.parse(concatenatedContent);
-
     ctx.response.type = "text/html";
-    ctx.response.body = `<div class="markdown-content concatenated-content">${htmlContent}</div>`;
+    ctx.response.body = finalHtml;
   }
 }
 
@@ -160,16 +175,23 @@ window.updatePreview = function() {
   // Show loading
   previewContent.innerHTML = '<div class="htmx-indicator">Loading concatenated content...</div>';
   
-  // Fetch concatenated content
-  const paths = Array.from(window.selectedFilesMulti).join(',');
-  fetch('/workspace/concatenate-files?paths=' + encodeURIComponent(paths))
-    .then(response => response.text())
-    .then(html => {
-      previewContent.innerHTML = html;
+    // Fetch concatenated content using POST with JSON
+    const paths = Array.from(window.selectedFilesMulti);
+    fetch('/workspace/concatenate-files', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'HX-Request': 'true'
+      },
+      body: JSON.stringify({ paths })
     })
-    .catch(error => {
-      previewContent.innerHTML = '<div class="error">Error loading content: ' + error.message + '</div>';
-    });
+      .then(response => response.text())
+      .then(html => {
+        previewContent.innerHTML = html;
+      })
+      .catch(error => {
+        previewContent.innerHTML = '<div class="error">Error loading content: ' + error.message + '</div>';
+      });
 };
 </script>`,
     );

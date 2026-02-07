@@ -69,11 +69,11 @@ export function defaultFileFilter(name: string): boolean {
 }
 
 /**
- * Default file click handler - generates a link with hx-get attributes
+ * Default file click handler - generates a link with hx-post attributes
  */
 export function defaultFileClickHandler(node: FileNode, name: string): string {
   const encodedPath = encodeURIComponent(node.path);
-  return `href="/page/file/${encodedPath}" hx-get="/page/file/${encodedPath}" hx-target="#page-content"`;
+  return `href="/page/file/${encodedPath}" hx-post="/page/file/${encodedPath}" hx-vals='{"path": "${encodedPath}"}' hx-target="#page-content"`;
 }
 
 /**

@@ -40,9 +40,9 @@ import { directoryTreeSectionAsset } from "../assets/page/workspace/directory_tr
 import { fileViewerSectionAsset } from "../assets/page/workspace/file_viewer_section_asset.ts";
 
 // Import workspace multi-select assets
-import { workspaceMultiPageAsset } from "../assets/page/workspace/workspace_multi_page_asset.ts";
-import { directoryTreeMultiSectionAsset } from "../assets/page/workspace/directory_tree_multi_section_asset.ts";
-import { concatenateFilesAsset } from "../assets/page/workspace/workspace_multi_page_asset.ts";
+import { workspaceMultiPageAsset } from "../assets/page/workspace_multi/workspace_multi_page_asset.ts";
+import { directoryTreeMultiSectionAsset } from "../assets/page/workspace_multi/directory_tree_multi_section_asset.ts";
+import { concatenateFilesAsset } from "../assets/page/workspace_multi/workspace_multi_page_asset.ts";
 
 // Re-export asset classes for use by asset files
 export { PageAsset, ApiAsset } from "../assets/base/asset_base.ts";
@@ -88,9 +88,12 @@ const allAssets: BaseAsset[] = [
 export function setupMainRoutes(router: Router) {
   // Register all assets
   for (const asset of allAssets) {
-    if (asset.requestType === "GET") {
+    if (asset.requestType === "POST") {
+      router.post(asset.url, asset.getHandler());
+    } else if (asset.requestType === "GET") {
+      // Fallback for any legacy GET assets
       router.get(asset.url, asset.getHandler());
     }
-    // Add other request types as needed (POST, PUT, DELETE, etc.)
+    // Add other request types as needed (PUT, DELETE, etc.)
   }
 }

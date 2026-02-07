@@ -3,17 +3,39 @@ import { RouterContext } from "oak";
 // Base parameter interface
 export interface TAssetParam {}
 
+// Helper to parse POST body
+async function parsePostBody(ctx: RouterContext<any>): Promise<any> {
+  const contentType = ctx.request.headers.get("content-type") || "";
+  
+  if (contentType.includes("application/json")) {
+    try {
+      const body = await ctx.request.body.json();
+      return body || {};
+    } catch {
+      return {};
+    }
+  }
+  
+  return {};
+}
+
 // Base Asset class for inheritance
 export abstract class BaseAsset<T extends TAssetParam = TAssetParam> {
   abstract url: string;
-  abstract requestType: string;
+  requestType: "GET" | "POST" = "POST";
   params?: T;
 
   getHandler(): (ctx: RouterContext<any>) => Promise<void> {
     return async (ctx: RouterContext<any>) => {
-      // Populate typed parameters for generic assets
-      // This provides type-safe parameter access in asset implementations
-      this.params = ctx.params as unknown as T;
+      // For POST requests, parse the body and merge with URL params
+      if (this.requestType === "POST") {
+        const body = await parsePostBody(ctx);
+        // Merge URL params with body params (body takes precedence)
+        this.params = { ...ctx.params, ...body } as unknown as T;
+      } else {
+        // For backward compatibility with GET
+        this.params = ctx.params as unknown as T;
+      }
 
       // Delegate to subclass implementation
       await this.handleRequest(ctx);
@@ -27,7 +49,7 @@ export abstract class BaseAsset<T extends TAssetParam = TAssetParam> {
 export function implementBaseAsset<T extends new (...args: any[]) => any>(
   constructor: T,
   url: string,
-  requestType: string = "GET"
+  requestType: "GET" | "POST" = "POST"
 ) {
   return class extends constructor {
     url = url;
@@ -41,7 +63,7 @@ export abstract class SectionAsset<T extends TAssetParam = TAssetParam> extends 
   abstract title: string | ((params: Record<string, any>) => string);
   content: string | ((params: Record<string, any>) => Promise<string>) | (() => Promise<string>) = "";
 
-  requestType = "GET";
+  override requestType: "GET" | "POST" = "POST";
 
   protected async handleRequest(ctx: RouterContext<any>): Promise<void> {
     ctx.response.type = "text/html";
@@ -107,13 +129,13 @@ export abstract class MenuCardAsset extends SectionAsset {
 // API Asset class for JSON responses
 export class ApiAsset extends BaseAsset {
   url: string;
-  requestType: string;
+  override requestType: "GET" | "POST" = "POST";
   data: any | ((ctx: RouterContext<any>) => Promise<any>);
 
   constructor(url: string, data: any | ((ctx: RouterContext<any>) => Promise<any>)) {
     super();
     this.url = url;
-    this.requestType = "GET";
+    this.requestType = "POST";
     this.data = data;
   }
 

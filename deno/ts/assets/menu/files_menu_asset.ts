@@ -10,7 +10,7 @@ import {
 // Custom file click handler for the menu - uses HTMX to load files
 function menuFileClickHandler(node: FileNode, _name: string): string {
   const encodedPath = encodeURIComponent(node.path);
-  return `href="/page/file/${encodedPath}" hx-get="/page/file/${encodedPath}" hx-target="#page-content"`;
+  return `href="/page/file/${encodedPath}" hx-post="/page/file/${encodedPath}" hx-vals='{"path": "${encodedPath}"}' hx-target="#page-content"`;
 }
 
 // Custom directory click handler for the menu - toggles expansion

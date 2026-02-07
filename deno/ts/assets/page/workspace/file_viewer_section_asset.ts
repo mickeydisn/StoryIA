@@ -96,19 +96,9 @@ export class FileViewerSectionAsset extends SectionAsset<FileViewerParams> {
   };
 
   protected override async handleRequest(ctx: any): Promise<void> {
-    // Check if path is in URL params or query params
-    let path = ctx.params.path;
-
-    // If no path in URL params, check query params
-    if (!path && ctx.request.url) {
-      const url = new URL(ctx.request.url);
-      path = url.searchParams.get("path") || undefined;
-    }
-
-    // Populate params with the found path
-    this.params = { path } as FileViewerParams;
-
-    // Call parent handleRequest
+    // Params are now automatically populated from POST body in BaseAsset
+    // this.params is already set by getHandler() in asset_base.ts
+    // Just need to call parent handleRequest
     await super.handleRequest(ctx);
   }
 }

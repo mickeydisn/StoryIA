@@ -140,27 +140,23 @@ function loadSectionWithParams(url, sectionId, paramsOverride) {
 
     if (loadingDiv) loadingDiv.style.display = 'block';
 
-    // Handle route patterns like /file/:path* by converting to query params
+    // Handle route patterns like /file/:path* by cleaning URL
     let finalUrl = url;
     if (url.includes(':path*')) {
       finalUrl = url.replace(':path*', '');
-      // Add all params as query parameters
-      const urlObj = new URL(finalUrl, window.location.origin);
-      Object.keys(params).forEach(key => {
-        urlObj.searchParams.set(key, params[key]);
-      });
-      finalUrl = urlObj.toString();
-    } else {
-      // Normal URL construction
-      const urlObj = new URL(url, window.location.origin);
-      Object.keys(params).forEach(key => {
-        urlObj.searchParams.set(key, params[key]);
-      });
-      finalUrl = urlObj.toString();
     }
+    // Ensure URL is absolute
+    finalUrl = new URL(finalUrl, window.location.origin).toString();
 
-    // Use fetch to load content
-    fetch(finalUrl)
+    // Use POST with JSON body instead of GET with query params
+    fetch(finalUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'HX-Request': 'true'
+      },
+      body: JSON.stringify(params)
+    })
       .then(response => response.text())
       .then(html => {
         contentDiv.innerHTML = html;

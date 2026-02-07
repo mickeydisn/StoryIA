@@ -197,7 +197,7 @@ async function generateFileContent(params: FileViewerParams): Promise<string> {
 <div class="error-content">
     <p>Could not load file: ${filePath}</p>
     <p>Error: ${error instanceof Error ? error.message : String(error)}</p>
-    <a href="/page/files" class="back-link" hx-get="/page/files" hx-target="#page-content">← Back to Files</a>
+    <a href="/page/files" class="back-link" hx-post="/page/files" hx-target="#page-content">← Back to Files</a>
 </div>
     `;
   }
@@ -225,19 +225,9 @@ export class FileViewerAsset extends SectionAsset<FileViewerParams> {
   };
 
   protected override async handleRequest(ctx: any): Promise<void> {
-    // Check if path is in URL params (from :path*) or query params
-    let path = ctx.params.path;
-
-    // If no path in URL params, check query params
-    if (!path && ctx.request.url) {
-      const url = new URL(ctx.request.url);
-      path = url.searchParams.get("path");
-    }
-
-    // Populate params with the found path
-    this.params = { path } as FileViewerParams;
-
-    // Call parent handleRequest
+    // Params are now automatically populated from POST body in BaseAsset
+    // this.params is already set by getHandler() in asset_base.ts
+    // Just need to call parent handleRequest
     await super.handleRequest(ctx);
   }
 }
@@ -264,19 +254,9 @@ export class FileViewerPageAsset extends PageAsset {
   };
 
   protected override async handleRequest(ctx: any): Promise<void> {
-    // Check if path is in URL params (from :path*) or query params
-    let path = ctx.params.path;
-
-    // If no path in URL params, check query params
-    if (!path && ctx.request.url) {
-      const url = new URL(ctx.request.url);
-      path = url.searchParams.get("path");
-    }
-
-    // Update params with the found path
-    ctx.params.path = path;
-
-    // Call parent handleRequest
+    // Params are now automatically populated from POST body in BaseAsset
+    // ctx.params and this.params are already set by getHandler() in asset_base.ts
+    // Just need to call parent handleRequest
     await super.handleRequest(ctx);
   }
 }
