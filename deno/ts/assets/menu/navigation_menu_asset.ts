@@ -7,6 +7,8 @@ export class NavigationMenuAsset extends MenuCardAsset {
   override content = `
 <nav class="sidebar-nav">
     <button class="nav-button" hx-get="/page/home" hx-target="#page-content">🏠 Home</button>
+    <button class="nav-button" hx-get="/page/workspace" hx-target="#page-content">💼 Workspace</button>
+    <button class="nav-button" hx-get="/page/workspace-multi" hx-target="#page-content">🔲 Workspace Multi</button>
     <button class="nav-button" hx-get="/page/section-files" hx-target="#page-content">📁 File Sections</button>
     <button class="nav-button" hx-get="/page/references" hx-target="#page-content">📊 References</button>
     <button class="nav-button" hx-get="/page/references2" hx-target="#page-content">📊 References v2</button>

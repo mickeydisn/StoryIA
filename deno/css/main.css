@@ -316,15 +316,6 @@ body {
   transform: translateX(-2px);
 }
 
-/* Legacy Tree Container Classes - Now use .directory-tree */
-.file-tree-sidebar {
-  /* Kept for backward compatibility - maps to .directory-tree.sidebar */
-}
-
-.file-tree-full {
-  /* Kept for backward compatibility - maps to .directory-tree.full-page */
-}
-
 /* Header */
 header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

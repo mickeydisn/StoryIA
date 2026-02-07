@@ -1,0 +1,466 @@
+/* ==========================================================================
+   Workspace Page Styles
+   Specific styles for the Workspace page and its components
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Workspace Directory Tree Section
+   -------------------------------------------------------------------------- */
+.workspace-directory-section {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Tree Subsection */
+.workspace-directory-section .tree-subsection {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.workspace-directory-section .tree-subsection summary {
+  background: rgba(52, 152, 219, 0.2);
+  color: white;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+.workspace-directory-section .tree-subsection summary:hover {
+  background: rgba(52, 152, 219, 0.3);
+}
+
+.workspace-directory-section .tree-subsection summary::marker {
+  display: none;
+}
+
+.workspace-directory-section .tree-subsection summary::after {
+  content: "▶";
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease;
+  margin-left: auto;
+}
+
+.workspace-directory-section .tree-subsection[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.workspace-directory-section .tree-content {
+  padding: 1rem;
+}
+
+.workspace-directory-section .directory-tree {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* --------------------------------------------------------------------------
+   File Subsections Container
+   -------------------------------------------------------------------------- */
+.file-subsections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   File Subsections inside Directory Tree
+   -------------------------------------------------------------------------- */
+#content-directory-tree .file-subsection,
+.file-subsection {
+  background: linear-gradient(180deg, #34495e 0%, #2c3e50 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  animation: slideInSubsection 0.3s ease-out;
+}
+
+@keyframes slideInSubsection {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.file-subsection:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-color: rgba(52, 152, 219, 0.4);
+}
+
+.file-subsection summary {
+  background: rgba(52, 152, 219, 0.15);
+  color: white;
+  padding: 0.75rem 4rem 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.file-subsection summary:hover {
+  background: rgba(52, 152, 219, 0.25);
+}
+
+.file-subsection summary::marker {
+  display: none;
+}
+
+.file-subsection summary::after {
+  content: "▶";
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease;
+  margin-left: 0.75rem;
+}
+
+.file-subsection[open] summary::after {
+  transform: rotate(90deg);
+}
+
+/* Close and Delete buttons in file subsections */
+.file-subsection summary .summary-load-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.file-subsection summary .summary-load-btn:hover {
+  background: rgba(231, 76, 60, 0.3);
+  border-color: rgba(231, 76, 60, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.file-subsection summary .summary-load-btn.delete-btn {
+  right: 2.75rem;
+}
+
+.file-subsection summary .summary-load-btn.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.file-subsection summary .summary-load-btn.delete-btn:hover {
+  background: rgba(231, 76, 60, 0.6);
+  border-color: rgba(231, 76, 60, 0.8);
+}
+
+.file-subsection summary .summary-load-btn::before {
+  content: none;
+}
+
+/* Content area for file subsections */
+.file-subsection .section-content {
+  padding: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  background: rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   Multi-Select Styles
+   -------------------------------------------------------------------------- */
+
+/* Preview Subsection */
+.preview-subsection {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.preview-subsection summary {
+  background: rgba(46, 204, 113, 0.2);
+  color: white;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+.preview-subsection summary:hover {
+  background: rgba(46, 204, 113, 0.3);
+}
+
+.preview-subsection summary::marker {
+  display: none;
+}
+
+.preview-subsection summary::after {
+  content: "▶";
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease;
+  margin-left: auto;
+}
+
+.preview-subsection[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.preview-content {
+  padding: 1rem;
+}
+
+.preview-content .no-selection {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Multi-select tree styles */
+.workspace-multi-select-tree .tree-file {
+  position: relative;
+}
+
+.workspace-multi-select-tree .tree-file.selected {
+  background: rgba(52, 152, 219, 0.15);
+  border-radius: 4px;
+}
+
+.workspace-multi-select-tree .tree-file .file-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.workspace-multi-select-tree .tree-file .file-link:hover {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.3) 0%, rgba(41, 128, 185, 0.3) 100%);
+  border-radius: 4px;
+}
+
+/* Checkbox styling */
+.workspace-multi-select-tree .file-checkbox {
+  width: 1.1rem;
+  height: 1.1rem;
+  cursor: pointer;
+  accent-color: #3498db;
+}
+
+/* Directory controls */
+.workspace-multi-select-tree .tree-directory .tree-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.workspace-multi-select-tree .dir-controls {
+  display: flex;
+  gap: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.workspace-multi-select-tree .dir-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.workspace-multi-select-tree .dir-btn:hover {
+  background: rgba(52, 152, 219, 0.3);
+  border-color: rgba(52, 152, 219, 0.5);
+}
+
+.workspace-multi-select-tree .dir-btn.select-all:hover {
+  background: rgba(46, 204, 113, 0.3);
+  border-color: rgba(46, 204, 113, 0.5);
+}
+
+.workspace-multi-select-tree .dir-btn.unselect-all:hover {
+  background: rgba(231, 76, 60, 0.3);
+  border-color: rgba(231, 76, 60, 0.5);
+}
+
+/* Concatenated content styling */
+.concatenated-content {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.concatenated-content h2 {
+  color: #3498db;
+  border-bottom: 2px solid rgba(52, 152, 219, 0.3);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.concatenated-content h2:first-child {
+  margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Workspace Tree File Styling
+   -------------------------------------------------------------------------- */
+.workspace-file-tree .tree-file .file-link {
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.workspace-file-tree .tree-file .file-link:hover {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.3) 0%, rgba(41, 128, 185, 0.3) 100%);
+  color: #fff;
+  border-color: rgba(52, 152, 219, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.workspace-file-tree .tree-toggle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.workspace-file-tree .tree-toggle:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  color: #fff;
+}
+
+.workspace-file-tree .tree-children {
+  border-left-color: rgba(52, 152, 219, 0.5);
+}
+
+.workspace-file-tree .tree-children::before {
+  background: linear-gradient(to bottom, rgba(52, 152, 219, 0.5), rgba(255, 255, 255, 0.1));
+}
+
+/* --------------------------------------------------------------------------
+   Error Content Styling
+   -------------------------------------------------------------------------- */
+.error-content {
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-radius: 6px;
+  padding: 1.5rem;
+  color: #e74c3c;
+  margin: 1rem 0;
+}
+
+.error-content p {
+  margin: 0.5rem 0;
+}
+
+.error-content p:first-child {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Design
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .workspace-directory-section .tree-content .directory-tree {
+    max-height: 300px;
+    padding: 0.5rem;
+  }
+
+  .file-subsection {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .file-subsection summary {
+    padding: 0.6rem 3.5rem 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .file-subsection .section-content {
+    padding: 1rem;
+  }
+  
+  .concatenated-content {
+    max-height: 400px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Scrollbar Styling for Workspace
+   -------------------------------------------------------------------------- */
+.workspace-directory-section .directory-tree::-webkit-scrollbar {
+  width: 8px;
+}
+
+.workspace-directory-section .directory-tree::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.workspace-directory-section .directory-tree::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.workspace-directory-section .directory-tree::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.concatenated-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.concatenated-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.concatenated-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.concatenated-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

@@ -34,6 +34,16 @@ import { unionEntriesAsset } from "../assets/page/references_asset2/union_entrie
 import { chaptersOverviewAsset } from "../assets/page/references_asset2/chapters_overview_asset.ts";
 import { localAgentPageAsset } from "../assets/page/local_agent/local_agent_page_asset.ts";
 
+// Import workspace assets
+import { workspacePageAsset } from "../assets/page/workspace/workspace_page_asset.ts";
+import { directoryTreeSectionAsset } from "../assets/page/workspace/directory_tree_section_asset.ts";
+import { fileViewerSectionAsset } from "../assets/page/workspace/file_viewer_section_asset.ts";
+
+// Import workspace multi-select assets
+import { workspaceMultiPageAsset } from "../assets/page/workspace/workspace_multi_page_asset.ts";
+import { directoryTreeMultiSectionAsset } from "../assets/page/workspace/directory_tree_multi_section_asset.ts";
+import { concatenateFilesAsset } from "../assets/page/workspace/workspace_multi_page_asset.ts";
+
 // Re-export asset classes for use by asset files
 export { PageAsset, ApiAsset } from "../assets/base/asset_base.ts";
 
@@ -65,6 +75,14 @@ const allAssets: BaseAsset[] = [
   chaptersOverviewAsset,
   referencesPageAsset2,
   localAgentPageAsset,
+  // Workspace assets
+  workspacePageAsset,
+  directoryTreeSectionAsset,
+  fileViewerSectionAsset,
+  // Workspace multi-select assets
+  workspaceMultiPageAsset,
+  directoryTreeMultiSectionAsset,
+  concatenateFilesAsset,
 ];
 
 export function setupMainRoutes(router: Router) {
